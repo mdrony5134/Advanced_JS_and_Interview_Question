@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gradient Color Picker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <section>
+    <div class="btnGrp">
+      <button class="btn-1">#9DCEFF</button>
+      <button class="btn-2">#9DCFCC</button>
+      <p>Copy Your Code Here</p>
+    </div>
+    <div class="copyDiv">
+      background-image: linear-gradient(to right, #9DCEFF , #9DCFCC);
+    </div>
+  </section>
+
+
+  <script>
+    let btn1 = document.querySelector(".btn-1");
+    let btn2 = document.querySelector(".btn-2");
+    let copyDiv = document.querySelector(".copyDiv");
+
+    const generateHexValue = () => {
+      let myHexValue = "0123456789abcdef"
+      let color = "#";
+      for (let i = 0; i < 6; i++) {
+        color += myHexValue[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    let hexColor1 = "#000"
+    let hexColor2 = "#fff"
+
+    const handleBtn1 = () => {
+      hexColor1 = generateHexValue();
+      document.body.style.backgroundImage = `linear-gradient(to right, ${hexColor1} , ${hexColor2})`
+      copyDiv.innerHTML = `background-image: linear-gradient(to right, ${hexColor1} , ${hexColor2});`
+    }
+
+    const handleBtn2 = () => {
+      hexColor2 = generateHexValue();
+      document.body.style.backgroundImage = `linear-gradient(to right, ${hexColor1} , ${hexColor2})`
+      copyDiv.innerHTML = `background-image: linear-gradient(to right, ${hexColor1} , ${hexColor2});`
+    }
+
+    copyDiv.addEventListener("click", () => {
+      navigator.clipboard.writeText(copyDiv.innerText);
+      alert("Copy Code Successfully");
+    })
+
+    btn1.addEventListener("click", handleBtn1);
+    btn2.addEventListener("click", handleBtn2);
+  </script>
+</body>
+
+</html>

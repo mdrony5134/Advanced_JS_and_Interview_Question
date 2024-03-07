@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p class="countTime">0</p>
+  <div>
+    <button class="start">Start</button>
+    <button class="stop">Stop</button>
+    <button class="reset">Reset</button>
+    <button class="start">GetTime</button>
+  </div>
+
+
+
+
+  <script>
+    let countTime = document.querySelector(".countTime");
+    let count = 0;
+    let intervalId;
+    const handleStartTime = () => {
+
+      intervalId = setInterval(() => {
+        countTime.innerText = count++;
+      }, 1000)
+      // console.log("click")
+    }
+
+
+    const handleStopTime = () =>{
+      clearInterval(intervalId);
+      // console.log("click")
+    }
+
+    const handleResetTime = () =>{
+      count = 0;
+      countTime.innerText = count;
+      clearInterval(intervalId);
+    }
+
+
+    document.querySelector(".start").addEventListener("click", handleStartTime);
+    document.querySelector(".stop").addEventListener("click", handleStopTime);
+    document.querySelector(".reset").addEventListener("click", handleResetTime);
+     
+  </script>
+</body>
+
+</html>
