@@ -11,10 +11,10 @@ const obj = {
 obj.greet();
 
 ```
--Alone this refer to global object that means window object.
--In function this refer to global object same window object.
--In function , strict mode , this is undefined.
--Method like call apply and bind can refer this any object.
+- Alone this refer to global object that means window object.
+- In function this refer to global object same window object.
+- In function , strict mode , this is undefined.
+- Method like call apply and bind can refer this any object.
 
 -Fat arrow function this refers global object
 
